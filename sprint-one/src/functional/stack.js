@@ -11,7 +11,9 @@ var Stack = function() {
 
   someInstance.pop = function() {
     if(idx !== 0) {
-      return storage[--idx];
+      var result = storage[--idx];
+      storage[idx] = undefined;
+      return result;
     }
   };
 
