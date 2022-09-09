@@ -20,6 +20,11 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
+    // if no head
+    if(!this.head) {
+      return null;
+    }
+      // return null
     //Temp var to current head
     var temp = list.head.value;
     //Transfer head to head.next

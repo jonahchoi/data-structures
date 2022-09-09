@@ -18,11 +18,13 @@ HashTable.prototype.retrieve = function(k) {
   //get at index
   var bucket = this._storage.get(index);
   var result;
-  bucket.forEach(function(tuple) {
-    if(tuple[0] === k) {
-      result = tuple[1];
-    }
-  });
+  if(bucket) {
+    bucket.forEach(function(tuple) {
+      if(tuple[0] === k) {
+        result = tuple[1];
+      }
+    });
+  }
   return result;
 };
 

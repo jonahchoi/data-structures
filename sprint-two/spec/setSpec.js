@@ -11,6 +11,7 @@ describe('set', function() {
     expect(set.remove).to.be.a('function');
   });
 
+
   it('should add values to a set', function() {
     set.add('Susan Sarandon');
     set.add('Danny Glover');
@@ -24,4 +25,9 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should only contain unique values', function() {
+    set.add('josh');
+    set.add('josh');
+    expect(Object.keys(set._storage).length).to.equal(1);
+  });
 });

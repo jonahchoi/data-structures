@@ -49,6 +49,11 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should return undefined when retrieving item that doesn\'t exist', function() {
+    hashTable.insert('Josh', 'Jonah');
+    expect(hashTable.retrieve('Jonah')).to.equal(undefined);
+  })
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {

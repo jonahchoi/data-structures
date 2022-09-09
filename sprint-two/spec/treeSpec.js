@@ -5,10 +5,15 @@ describe('tree', function() {
     tree = Tree();
   });
 
-  it('should have methods named "addChild" and "contains", and a property named "value"', function() {
+  //  A .parent property, which refers to the parent node or null when there is no node
+  //  A .removeFromParent() method, which disassociates the tree with its parent (in both directions)
+
+  it('should have methods named "addChild", "contains" and "removeFromParent", and properties named "value" and "parent"', function() {
     expect(tree.addChild).to.be.a('function');
     expect(tree.contains).to.be.a('function');
     expect(tree.hasOwnProperty('value')).to.equal(true);
+    expect(tree.hasOwnProperty('parent')).to.equal(true);
+    expect(tree.removeFromParent).to.be.a('function');
   });
 
   it('should add children to the tree', function() {
