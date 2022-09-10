@@ -113,7 +113,7 @@ var tester = function() {
     }
   }
 }
-tester();
+// tester();
 
 /*
   With 4 inputs, 1 false positive
