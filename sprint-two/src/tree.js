@@ -11,6 +11,16 @@ var Tree = function(value) {
 
 var treeMethods = {};
 
+// traverse
+treeMethods.traverse = function(cb) {
+  cb(this.value);
+
+  this.children.forEach(function(child) {
+    // return result of contains for each child
+    child.traverse(cb);
+  })
+}
+
 // A .removeFromParent() method, which disassociates the tree with its parent (in both directions)
 treeMethods.removeFromParent = function() {
   var currentTree = this;
@@ -59,9 +69,9 @@ var treeTester = function() {
   testTree.addChild(2);
   testTree.addChild(3);
 
-  console.log(testTree.contains(3));
-
-  testTree.children[1].removeFromParent();
+  // console.log(testTree.contains(3));
+  testTree.traverse(function(value){console.log(value)});
+  // testTree.children[1].removeFromParent();
 
   console.log(testTree.children);
 
