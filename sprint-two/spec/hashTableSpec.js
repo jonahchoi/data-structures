@@ -42,10 +42,17 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = function() { return 0; };
     hashTable.insert(v1, v1);
     hashTable.insert(v2, v2);
+    // console.log('Failing on v1')
     expect(hashTable.retrieve(v1)).to.equal(v1);
+    // console.log('Failing on v2')
     expect(hashTable.retrieve(v2)).to.equal(v2);
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
+
+  it('should return undefined when retrieving item that doesn\'t exist', function() {
+    hashTable.insert('Josh', 'Jonah');
+    expect(hashTable.retrieve('Jonah')).to.equal(undefined);
+  })
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
